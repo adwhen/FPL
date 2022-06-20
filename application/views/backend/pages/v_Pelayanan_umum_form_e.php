@@ -87,6 +87,10 @@
                   <textarea name="TUJUAN" id="TUJUAN" class="form-control"><?= $data->TUJUAN_UMUM ?></textarea>
                 </div>
                 <div class="form-group">
+                  <label>RINCIAN PESANAN</label>
+                  <textarea name="RINCIAN" id="RINCIAN" class="form-control"><?= $data->RINCIAN_PESANAN ?></textarea>
+                </div>
+                <div class="form-group">
                   <label>VENDOR</label>
                   <input type="text" name="VENDOR" id="VENDOR" class="form-control" value="<?= $data->VENDOR ?>">
                 </div>

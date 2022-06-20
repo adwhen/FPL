@@ -82,6 +82,10 @@
                   <textarea name="TUJUAN" id="TUJUAN" class="form-control"></textarea>
                 </div>
                 <div class="form-group">
+                  <label>RINCIAN PESANAN</label>
+                  <textarea name="RINCIAN" id="RINCIAN" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
                   <label>VENDOR</label>
                   <input type="text" name="VENDOR" id="VENDOR" class="form-control" value="Ketua Koperasi Konsumen Suaka Bahari Pelabuhan">
                 </div>
