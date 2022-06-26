@@ -61,6 +61,10 @@
                   <input type="text" name="ACARA" id="ACARA" class="form-control" value="<?= $data->ACARA_J ?>">
                 </div>
                 <div class="form-group">
+                  <label>RINCIAN PESANAN</label>
+                  <textarea name="RINCIAN_PESANAN" id="RINCIAN_PESANAN" cols="30" rows="5" class="form-control"><?= $data->RINCIAN_PESANAN ?></textarea>
+                </div>
+                <div class="form-group">
                   <label>TANGGAL KEGIATAN</label>
                   <input type="DATE" name="TANGGAL" id="TANGGAL" class="form-control" value="<?= $data->DATE_J ?>">
                 </div>
