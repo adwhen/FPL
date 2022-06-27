@@ -142,4 +142,9 @@ class Mpelayananumum extends CI_Model
                         $this->db->update('tb_pelayanan_umum', $update, ['IDX_UMUM' => $IDX]);
                 }
         }
+        public function diagram_report()
+        {
+                $query = $this->db->query('SELECT NAMA_JENIS, count(BENTUK_UMUM) FROM `tb_jenis_pu` left join tb_pelayanan_umum on tb_pelayanan_umum.BENTUK_UMUM=tb_jenis_pu.NAMA_JENIS group by NAMA_JENIS');
+                return $query;
+        }
 }
