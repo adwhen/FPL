@@ -79,6 +79,10 @@ if (!empty($this->uri->segment(4))) {
                   <label>TUJUAN/KEPERLUAN</label>
                   <textarea name="TUJUAN" id="TUJUAN" class="form-control"><?= $data->TUJUAN_PK ?></textarea>
                 </div>
+                <div class="form-group">
+                  <label>KEPERLUAN ACARA</label>
+                  <textarea name="KEPERLUAN" id="KEPERLUAN" class="form-control"><?= $data->KEPERLUAN ?></textarea>
+                </div>
                 <label>
                   <h3>III. PINJAM KENDARAAN OPERASIONAL</h3>
                 </label>
@@ -99,11 +103,11 @@ if (!empty($this->uri->segment(4))) {
                 </div>
                 <div class="form-group">
                   <label>KM AWAL</label>
-                  <input type="text" name="SPEEDO_AWAL" id="SPEEDO_AWAL" class="form-control" value="<?= $data->SPEEDO_AWAL ?>">
+                  <input type="NUMBER" name="SPEEDO_AWAL" id="SPEEDO_AWAL" class="form-control" value="<?= $data->SPEEDO_AWAL ?>">
                 </div>
                 <div class="form-group">
                   <label>KM AKHIR</label>
-                  <input type="text" name="SPEEDO_AKHIR" id="SPEEDO_AKHIR" class="form-control" value="<?= $data->SPEEDO_AKHIR ?>" <?= $str_km ?>>
+                  <input type="NUMBER" name="SPEEDO_AKHIR" id="SPEEDO_AKHIR" class="form-control" value="<?= $data->SPEEDO_AKHIR ?>" <?= $str_km ?>>
                 </div>
               </div>
               <!-- /.col -->
