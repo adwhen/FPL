@@ -61,6 +61,10 @@
                   <input type="text" name="ACARA" id="ACARA" class="form-control" value="<?= $data->ACARA_J ?>">
                 </div>
                 <div class="form-group">
+                  <label>JUMLAH ORANG</label>
+                  <input type="text" name="JUMLAH_J" id="JUMLAH_J" class="form-control" value="<?= $data->JUMLAH_J ?>" onkeyup="typingJumlah()">
+                </div>
+                <div class="form-group">
                   <label>RINCIAN PESANAN</label>
                   <textarea name="RINCIAN_PESANAN" id="RINCIAN_PESANAN" cols="30" rows="5" class="form-control"><?= $data->RINCIAN_PESANAN ?></textarea>
                 </div>
@@ -190,3 +194,8 @@
 </div>
 
 <script src="<?= base_url('assets/adminlte') ?>/bower_components/ckeditor/ckeditor.js"></script>
+<script>
+  function typingJumlah() {
+    console.log('onpress')
+  }
+</script>

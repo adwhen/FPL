@@ -20,7 +20,7 @@
             <div class="box">
                 <div class="box-header">
                     <center>
-                        <h3 class="box-title">Pelayanan Umum <b>#REPORT</b></h3>
+                        <h3 class="box-title">Peminjaman Kendaraan <b>#REPORT</b></h3>
 
                     </center>
                 </div>
@@ -48,7 +48,7 @@
             <div class="box">
                 <div class="box-header">
                     <center>
-                        <h3 class="box-title">Pelayanan Umum <B>#DIAGRAM</B></h3>
+                        <h3 class="box-title">Peminjaman Kendaraan <B>#DIAGRAM</B></h3>
                     </center>
                 </div>
                 <hr>

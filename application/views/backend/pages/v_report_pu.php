@@ -2,6 +2,14 @@
     td {
         height: 120px;
     }
+
+    #CanvasID {
+        width: 500px;
+    }
+
+    .tengah {
+        padding: 0 25% 0 25%;
+    }
 </style>
 
 <div class="content-wrapper">
@@ -12,7 +20,35 @@
             <div class="box">
                 <div class="box-header">
                     <center>
-                        <h3 class="box-title">Pelayanan Umum</h3>
+                        <h3 class="box-title">Pelayanan Umum <b>#REPORT</b></h3>
+
+                    </center>
+                </div>
+                <hr>
+                <!-- /.box-header -->
+                <div class="box-body tengah">
+                    <form target="_blank" action="<?= base_url('index.php/Pelayanan_umum/excel') ?>">
+                        <div class="form-group">
+                            <label>START</label>
+                            <input type="date" name="START" id="START" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>FINISH</label>
+                            <input type="date" name="FINISH" id="FINISH" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <button>submit</button>
+                        </div>
+
+                    </form>
+                </div>
+                <!-- /.box-body -->
+            </div>
+
+            <div class="box">
+                <div class="box-header">
+                    <center>
+                        <h3 class="box-title">Pelayanan Umum <b>#DIAGRAM</b></h3>
                     </center>
                 </div>
                 <hr>
@@ -21,9 +57,11 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                    <div>
-                        <canvas id="myChart"></canvas>
-                    </div>
+                    <center>
+                        <div id="CanvasID">
+                            <canvas id="myChart"></canvas>
+                        </div>
+                    </center>
                 </div>
                 <!-- /.box-body -->
             </div>
@@ -76,21 +114,20 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
     const labels = [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
+        <?php foreach ($diagram as $d) : ?> '<?= $d->NAMA_JENIS ?>',
+        <?php endforeach; ?>
     ];
 
     const data = {
         labels: labels,
         datasets: [{
             label: 'My First dataset',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: [0, 10, 5, 2, 20, 30, 45],
+            backgroundColor: ['red', 'blue', 'green', 'yellow', 'orange', 'gray', 'navy'],
+            borderColor: 'white',
+            data: [<?php foreach ($diagram as $d) : ?>
+                    <?= $d->JUMLAH ?>,
+                <?php endforeach; ?>
+            ],
         }]
     };
 

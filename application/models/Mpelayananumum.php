@@ -144,7 +144,7 @@ class Mpelayananumum extends CI_Model
         }
         public function diagram_report()
         {
-                $query = $this->db->query('SELECT NAMA_JENIS, count(BENTUK_UMUM) FROM `tb_jenis_pu` left join tb_pelayanan_umum on tb_pelayanan_umum.BENTUK_UMUM=tb_jenis_pu.NAMA_JENIS group by NAMA_JENIS');
+                $query = $this->db->query('SELECT NAMA_JENIS, count(BENTUK_UMUM) as JUMLAH FROM `tb_jenis_pu` left join tb_pelayanan_umum on tb_pelayanan_umum.BENTUK_UMUM=tb_jenis_pu.NAMA_JENIS group by NAMA_JENIS');
                 return $query;
         }
 }

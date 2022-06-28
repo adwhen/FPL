@@ -86,4 +86,13 @@ class Pelayanan_umum extends CI_Controller
         );
         $this->load->view('backend/layout/template', $data);
     }
+    public function excel()
+    {
+        header("Content-type: application/vnd-ms-excel");
+        header("Content-Disposition: attachment; filename=Pelayanan_Umum.xls");
+        $where['DATE_UMUM >='] = $this->input->get('START');
+        $where['DATE_UMUM <='] = $this->input->get('FINISH');
+        $search['DATA'] = $this->db->get_where('tb_pelayanan_umum', $where)->result();
+        $this->load->view('report/pelayanan_umum', $search);
+    }
 }
