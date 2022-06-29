@@ -69,6 +69,10 @@
                   <textarea name="RINCIAN_PESANAN" id="RINCIAN_PESANAN" cols="30" rows="5" class="form-control"></textarea>
                 </div>
                 <div class="form-group">
+                  <label>TEMPAT PESANAN</label>
+                  <textarea name="TEMPAT_J" id="TEMPAT_J" cols="30" rows="1" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
                   <label>TANGGAL KEGIATAN</label>
                   <input type="DATE" name="TANGGAL" id="TANGGAL" class="form-control">
                 </div>
@@ -159,7 +163,7 @@
 
                                                         <p>&nbsp;</p>
                                                         </td>
-                                                        <td style="width:20%" >
+                                                        <td style="width:20%" class="tes" >
                                                         <div id="resultJumlah"></div>
                                                         <p>&nbsp;</p>
 

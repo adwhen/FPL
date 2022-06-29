@@ -9,7 +9,13 @@ class Mreception extends CI_Model
                 $data['JABATAN_J'] = $this->input->post('JABATAN');
                 $data['NIPP_J'] = $this->input->post('NIPP');
                 $data['TELEPON_J'] = $this->input->post('TELEPON');
+
+
                 $data['RINCIAN_PESANAN'] = $this->input->post('RINCIAN_PESANAN');
+                $data['JUMLAH_J'] = $this->input->post('JUMLAH_J');
+                $data['TEMPAT_J'] = $this->input->post('TEMPAT_J');
+
+
                 $data['UNIT_KERJA_J'] = $this->input->post('UNITKERJA');
                 $data['ACARA_J'] = $this->input->post('ACARA');
                 $data['DATE_J'] = $this->input->post('TANGGAL');
@@ -80,6 +86,11 @@ class Mreception extends CI_Model
                 $data['NIPP_J'] = $this->input->post('NIPP');
                 $data['TELEPON_J'] = $this->input->post('TELEPON');
                 $data['UNIT_KERJA_J'] = $this->input->post('UNITKERJA');
+
+                $data['RINCIAN_PESANAN'] = $this->input->post('RINCIAN_PESANAN');
+                $data['JUMLAH_J'] = $this->input->post('JUMLAH_J');
+                $data['TEMPAT_J'] = $this->input->post('TEMPAT_J');
+
                 $data['ACARA_J'] = $this->input->post('ACARA');
                 $data['DATE_J'] = $this->input->post('TANGGAL');
                 $data['ISI_J'] = $this->input->post('ISI');
@@ -157,5 +168,15 @@ class Mreception extends CI_Model
                         // );
                         //  $this->db->update('tb_jamuan',$update,['IDX_UMUM'=>$IDX]);
                 }
+        }
+        public function report()
+        {
+                $query = $this->db->query('SELECT JENIS_JAMUAN, COUNT(NOMOR_J) AS JUMLAH FROM `tb_jamuan` JOIN tb_jamuan_jenis on tb_jamuan_jenis.IDX_J = tb_jamuan.IDX_J right join tb_jenis_j on tb_jamuan_jenis.NAMA_JENIS= tb_jenis_j.JENIS_JAMUAN GROUP BY JENIS_JAMUAN');
+                return $query;
+        }
+        public function report_uk()
+        {
+                $query = $this->db->query('SELECT NAMA_UK, count(UNIT_KERJA_J) as JUMLAH FROM `tb_unit_kerja` left join tb_jamuan on tb_jamuan.UNIT_KERJA_J=tb_unit_kerja.NAMA_UK group by NAMA_UK');
+                return $query;
         }
 }

@@ -98,17 +98,18 @@ class Reception extends CI_Controller
 	{
 		$data = array(
 			'isi' => 'backend/pages/v_Jamuan_report',
-			'report' => $this->Mloan->report()->result()
+			'report' => $this->Mreception->report()->result(),
+			'report_uk' =>  $this->Mreception->report_uk()->result(),
 		);
 		$this->load->view('backend/layout/template', $data);
 	}
 	public function excel()
 	{
-		header("Content-type: application/vnd-ms-excel");
-		header("Content-Disposition: attachment; filename=Akomodasi_SPPD.xls");
-		$where['DATE_PK >='] = $this->input->get('START');
-		$where['DATE_PK <='] = $this->input->get('FINISH');
-		$search['DATA'] = $this->db->get_where('tb_peminjaman_kendaraan', $where)->result();
-		$this->load->view('report/peminjaman_kendaraan', $search);
+		// header("Content-type: application/vnd-ms-excel");
+		// header("Content-Disposition: attachment; filename=Jamuan_Dinas.xls");
+		$where['DATE_J >='] = $this->input->get('START');
+		$where['DATE_J <='] = $this->input->get('FINISH');
+		$search['DATA'] = $this->db->join('tb_jamuan_jenis', 'tb_jamuan_jenis.IDX_JJ=tb_jamuan.IDX_J')->get_where('tb_jamuan', $where)->result();
+		$this->load->view('report/jamuan_dinas', $search);
 	}
 }

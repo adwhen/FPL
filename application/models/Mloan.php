@@ -198,4 +198,9 @@ class Mloan extends CI_Model
                 $query = $this->db->query('SELECT NAMA_JK, COUNT(PINJAM_KENDARAAN) AS JUMLAH FROM `tb_peminjaman_kendaraan` RIGHT join tb_jenis_kendaraan on PINJAM_KENDARAAN=NAMA_JK GROUP BY NAMA_JK');
                 return $query;
         }
+        public function report_uk()
+        {
+                $query = $this->db->query('SELECT NAMA_UK, count(UNIT_KERJA_PK) as JUMLAH FROM `tb_unit_kerja` left join tb_peminjaman_kendaraan on tb_peminjaman_kendaraan.UNIT_KERJA_PK=tb_unit_kerja.NAMA_UK group by NAMA_UK');
+                return $query;
+        }
 }

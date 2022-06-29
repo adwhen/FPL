@@ -82,7 +82,8 @@ class Pelayanan_umum extends CI_Controller
     {
         $data = array(
             'isi' => 'backend/pages/v_report_pu',
-            'diagram' => $this->Mpelayananumum->diagram_report()->result()
+            'diagram' => $this->Mpelayananumum->diagram_report()->result(),
+            'report_unit_kerja' => $this->Mpelayananumum->diagram_report_uk()->result(),
         );
         $this->load->view('backend/layout/template', $data);
     }

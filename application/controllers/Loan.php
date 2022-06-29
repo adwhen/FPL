@@ -96,7 +96,8 @@ class Loan extends CI_Controller
     {
         $data = array(
             'isi' => 'backend/pages/v_Peminjaman_kendaraan_report',
-            'report' => $this->Mloan->report()->result()
+            'report' => $this->Mloan->report()->result(),
+            'report_uk' => $this->Mloan->report_uk()->result()
         );
         $this->load->view('backend/layout/template', $data);
     }
