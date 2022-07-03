@@ -91,7 +91,7 @@ class Accomodation extends CI_Controller
 	{
 		$data = array(
 			'isi' => 'backend/pages/v_Akomodasi_report',
-			'report' => $this->Mloan->report()->result()
+			'report_uk' => $this->Maccomodation->report_uk()->result(),
 		);
 		$this->load->view('backend/layout/template', $data);
 	}
@@ -99,9 +99,9 @@ class Accomodation extends CI_Controller
 	{
 		header("Content-type: application/vnd-ms-excel");
 		header("Content-Disposition: attachment; filename=Akomodasi_SPPD.xls");
-		$where['DATE_PK >='] = $this->input->get('START');
-		$where['DATE_PK <='] = $this->input->get('FINISH');
-		$search['DATA'] = $this->db->get_where('tb_peminjaman_kendaraan', $where)->result();
-		$this->load->view('report/peminjaman_kendaraan', $search);
+		$where['DATE_TTD >='] = $this->input->get('START');
+		$where['DATE_TTD <='] = $this->input->get('FINISH');
+		$search['DATA'] = $this->db->join('tb_akomodasi_jenis', 'tb_akomodasi_jenis.IDX_A=tb_akomodasi.IDX_A')->get_where('tb_akomodasi', $where)->result();
+		$this->load->view('report/akomodasi_sppd', $search);
 	}
 }

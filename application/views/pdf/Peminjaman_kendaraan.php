@@ -224,6 +224,4 @@ $pdf->writeHTMLCell(103, 100, 5, 170, $ttd, $border=0, $ln=0, $fill=0, $reseth=t
 $pdf->writeHTMLCell(103, 100, 110, 170, $ttd, $border=0, $ln=0, $fill=0, $reseth=true, $align='center', $autopadding=true);
 
 //Close and output PDF document
-$pdf->Output('Form Permohonan Pelayana Umum.pdf', 'I');
-
-?>
+$pdf->Output('Form Permohonan Peminjaman Kendaraan.pdf', 'I');

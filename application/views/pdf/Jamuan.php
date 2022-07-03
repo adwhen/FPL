@@ -246,6 +246,4 @@ $pdf->Write(0, $txt, '', 0, 'C', true, 0, false, false, 0);
 $image = base_url('assets/images/').$data->FILE;
 $pdf->Image($image, 43 ,'' , 113, 113,'' , 'http://www.tcpdf.org', 'C', true, 150, '1', false, false, 1, false, false, false);
 //Close and output PDF document
-$pdf->Output('Form Permohonan Pelayana Umum.pdf', 'I');
-
-?>
+$pdf->Output('Form Permohonan Jamuan Dinas.pdf', 'I');

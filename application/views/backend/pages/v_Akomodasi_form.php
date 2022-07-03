@@ -65,6 +65,24 @@
                   <input type="text" name="NOMOR" id="NOMOR" class="form-control">
                 </div>
                 <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <label>Tanggal kegiatan</label>
+                      <input type="date" name="TANGGAL_K_M" id="TANGGAL_K_M" class="form-control">
+                    </div>
+                    <div class="col-md-1">
+                      <center>
+                        <label>&nbsp;</label>
+                        <br> S/d
+                      </center>
+                    </div>
+                    <div class="col-md-3">
+                      <label>&nbsp;</label>
+                      <input type="date" name="TANGGAL_K_A" id="TANGGAL_K_A" class="form-control" placeholder="Mulai">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
                   <label>Rincian Pesanan</label>
                   <textarea name="RINCIAN_PESANAN" id="RINCIAN_PESANAN" cols="30" rows="5" class="form-control"></textarea>
                 </div>

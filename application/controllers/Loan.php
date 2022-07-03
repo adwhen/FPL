@@ -110,4 +110,9 @@ class Loan extends CI_Controller
         $search['DATA'] = $this->db->get_where('tb_peminjaman_kendaraan', $where)->result();
         $this->load->view('report/peminjaman_kendaraan', $search);
     }
+    public function report_uk()
+    {
+        $query = $this->db->query('SELECT NAMA_UK, count(UNIT_KERJA_PK) as JUMLAH FROM `tb_unit_kerja` left join tb_peminjaman_kendaraan on tb_peminjaman_kendaraan.UNIT_KERJA_PK=tb_unit_kerja.NAMA_UK group by NAMA_UK');
+        return $query;
+    }
 }

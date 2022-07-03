@@ -68,59 +68,19 @@
     </div>
     <!-- /.container -->
 </div>
-
-
-
-<script type="text/javascript">
-    function pop_up(IDX) {
-        var url = '<?= base_url('index.php/Loan/REC_Approve/') ?>'
-        $("#frame_popup").html('<iframe style="height:700px;width: 100%;" src="' + url + '/' + IDX + '"></iframe>')
-        $("#IDX").val(IDX)
-    }
-
-    function save_pel(idx) {
-        var status = $("#ACTION").val()
-        var komentar = $("#KOMENTAR").val()
-        $.post('<?= base_url('index.php/Loan/approval/') ?>', {
-                IDX: idx,
-                KOMENTAR: komentar,
-                STATUS: status
-            },
-            function(data) {
-                if (data.trim() == "OK") {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Data Berhasil di Proses',
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
-                    window.open('<?= base_url() ?>index.php/Loan', '_self');
-
-                } else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Failed',
-                        text: 'Terjadi Kesalahan, silahkan coba kembali',
-                        footer: 'atau hubungi Administrator'
-                    })
-                }
-            })
-
-    }
-</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
     const labels = [
-        <?php foreach ($report as $rp) : ?> '<?= $rp->NAMA_JK ?>', <?php endforeach; ?>
+        <?php foreach ($report_uk as $rp) : ?> '<?= $rp->NAMA_UK ?>', <?php endforeach; ?>
     ];
 
     const data = {
         labels: labels,
         datasets: [{
             label: 'My First dataset',
-            backgroundColor: ['lightgray', 'lightblue'],
+            backgroundColor: ['crimson', 'navy', 'tosca', 'orange'],
             borderColor: 'white',
-            data: [<?php foreach ($report as $rp) : ?> '<?= $rp->JUMLAH ?>', <?php endforeach; ?>],
+            data: [<?php foreach ($report_uk as $rp) : ?> '<?= $rp->JUMLAH ?>', <?php endforeach; ?>],
         }]
     };
 

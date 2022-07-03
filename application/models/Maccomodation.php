@@ -12,6 +12,10 @@ class Maccomodation extends CI_Model
                 $data['UNIT_KERJA_A'] = $this->input->post('UNITKERJA');
                 $data['ACARA_A'] = $this->input->post('ACARA');
                 $data['NOMOR_SPPD'] = $this->input->post('NOMOR');
+
+                $data['TANGGAL_K_M'] = $this->input->post('TANGGAL_K_M');
+                $data['TANGGAL_K_A'] = $this->input->post('TANGGAL_K_A');
+
                 $data['RINCIAN_PESANAN'] = $this->input->post('RINCIAN_PESANAN');
                 $data['ISI_A'] = $this->input->post('ISI');
                 $data['PROCESS'] = $this->input->post('ACTION');
@@ -82,6 +86,10 @@ class Maccomodation extends CI_Model
                 $data['UNIT_KERJA_A'] = $this->input->post('UNITKERJA');
                 $data['ACARA_A'] = $this->input->post('ACARA');
                 $data['NOMOR_SPPD'] = $this->input->post('NOMOR');
+
+                $data['TANGGAL_K_M'] = $this->input->post('TANGGAL_K_M');
+                $data['TANGGAL_K_A'] = $this->input->post('TANGGAL_K_A');
+
                 $data['ISI_A'] = $this->input->post('ISI');
                 $data['PROCESS'] = $this->input->post('ACTION');
                 $data['VENDOR'] = $this->input->post('VENDOR');
@@ -157,5 +165,10 @@ class Maccomodation extends CI_Model
                         // );
                         //  $this->db->update('tb_akomodasi',$update,['IDX_UMUM'=>$IDX]);
                 }
+        }
+        public function report_uk()
+        {
+                $query = $this->db->query('SELECT NAMA_UK, count(UNIT_KERJA_A) as JUMLAH FROM `tb_unit_kerja` left join tb_akomodasi on tb_akomodasi.UNIT_KERJA_A=tb_unit_kerja.NAMA_UK group by NAMA_UK');
+                return $query;
         }
 }

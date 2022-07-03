@@ -14,14 +14,13 @@
         foreach ($DATA as $s) : ?>
             <tr>
                 <td><?= $x++; ?></td>
-                <td><?= $s->UNIT_KERJA_PK ?></td>
-                <td><?= $s->PINJAM_KENDARAAN ?></td>
-                <td><?= $s->PENGEMUDI ?></td>
-                <td><?= $s->TIME_PK_AWAL ?> - <?= $s->TIME_PK_AKHIR ?></td>
-                <td><?= $s->DATE_PK ?></td>
-                <td><?= $s->SPEEDO_AWAL ?></td>
-                <td><?= $s->TUJUAN_PK ?></td>
-                <td><?= $s->PINJAM_KENDARAAN ?></td>
+                <td><?= $s->UNIT_KERJA_A ?></td>
+                <td><?= $s->NOMOR_SPPD ?></td>
+                <td><?= $s->NAMA_AJ ?></td>
+                <td></td>
+                <td><?= $s->ACARA_A ?></td>
+                <td><?= $s->RINCIAN_PESANAN ?></td>
+                <td><?= $s->TANGGAL_K_M ?> - <?= $s->TANGGAL_K_A ?></td>
             </tr>
         <?php endforeach; ?>
     </tbody>
