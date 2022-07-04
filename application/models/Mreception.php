@@ -15,6 +15,8 @@ class Mreception extends CI_Model
                 $data['JUMLAH_J'] = $this->input->post('JUMLAH_J');
                 $data['TEMPAT_J'] = $this->input->post('TEMPAT_J');
 
+                $data['WAKTU_M'] = $this->input->post('WAKTU_AWAL');
+                $data['WAKTU_A'] = $this->input->post('WAKTU_AKHIR');
 
                 $data['UNIT_KERJA_J'] = $this->input->post('UNITKERJA');
                 $data['ACARA_J'] = $this->input->post('ACARA');
@@ -90,6 +92,8 @@ class Mreception extends CI_Model
                 $data['RINCIAN_PESANAN'] = $this->input->post('RINCIAN_PESANAN');
                 $data['JUMLAH_J'] = $this->input->post('JUMLAH_J');
                 $data['TEMPAT_J'] = $this->input->post('TEMPAT_J');
+                $data['WAKTU_M'] = $this->input->post('WAKTU_AWAL');
+                $data['WAKTU_A'] = $this->input->post('WAKTU_AKHIR');
 
                 $data['ACARA_J'] = $this->input->post('ACARA');
                 $data['DATE_J'] = $this->input->post('TANGGAL');

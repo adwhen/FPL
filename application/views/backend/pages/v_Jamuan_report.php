@@ -98,7 +98,7 @@
         labels: labels,
         datasets: [{
             label: 'My First dataset',
-            backgroundColor: ['crimson', 'navy', 'tosca', 'orange'],
+            backgroundColor: ['red', 'blue', 'green', 'yellow', 'gray'],
             borderColor: 'white',
             data: [<?php foreach ($report as $rp) : ?> '<?= $rp->JUMLAH ?>', <?php endforeach; ?>],
         }]

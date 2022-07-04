@@ -69,6 +69,16 @@
                   <textarea name="RINCIAN_PESANAN" id="RINCIAN_PESANAN" cols="30" rows="5" class="form-control"><?= $data->RINCIAN_PESANAN ?></textarea>
                 </div>
                 <div class="form-group">
+                  <label>WAKTU</label>
+                  <div class="row">
+                    <div class="col-md-5"><input type="TIME" name="WAKTU_AWAL" id="WAKTU_AWAL" class="form-control" value="<?= $data->WAKTU_M ?>"></div>
+                    <div class="col-md-1"><B>Sampai</B></div>
+
+                    <div class="col-md-5"><input type="TIME" name="WAKTU_AKHIR" id="WAKTU_AKHIR" class="form-control" value="<?= $data->WAKTU_A ?>"></div>
+                  </div>
+
+                </div>
+                <div class="form-group">
                   <label>TEMPAT PESANAN</label>
                   <textarea name="TEMPAT_J" id="TEMPAT_J" cols="30" rows="1" class="form-control"><?= $data->TEMPAT_J ?></textarea>
                 </div>
