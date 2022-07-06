@@ -105,8 +105,8 @@ class Reception extends CI_Controller
 	}
 	public function excel()
 	{
-		// header("Content-type: application/vnd-ms-excel");
-		// header("Content-Disposition: attachment; filename=Jamuan_Dinas.xls");
+		header("Content-type: application/vnd-ms-excel");
+		header("Content-Disposition: attachment; filename=Jamuan_Dinas.xls");
 		$where['DATE_J >='] = $this->input->get('START');
 		$where['DATE_J <='] = $this->input->get('FINISH');
 		$search['DATA'] = $this->db->join('tb_jamuan_jenis', 'tb_jamuan_jenis.IDX_JJ=tb_jamuan.IDX_J')->get_where('tb_jamuan', $where)->result();

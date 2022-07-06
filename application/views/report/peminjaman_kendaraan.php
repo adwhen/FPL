@@ -1,3 +1,9 @@
+<center>
+    <tr>
+        <td colspan="5"><b>PEMINJAMAN KENDARAAN</b></td>
+    </tr>
+</center>
+<br>
 <table border=1>
     <thead>
         <th>No</th>

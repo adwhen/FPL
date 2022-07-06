@@ -28,8 +28,8 @@
                 } ?>><a href="<?= base_url('index.php/Accomodation') ?>">Akomodasi</a></li>
             <li <?php if ($this->uri->segment(1) == "Report") {
                   echo 'class="active"';
-                } ?>><a href="<?= base_url('index.php/Report') ?>">Laporan</a></li>
-            <!--             <li class="dropdown">
+                } ?>>
+              <!--             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="#">Action</a></li>
@@ -59,7 +59,7 @@
               <!-- Menu Toggle Button -->
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <!-- The user image in the navbar-->
-                <img src="<?= base_url('assets/adminlte') ?>/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                <img src="<?= base_url('assets/') ?>logo.jpg" class="user-image" alt="User Image">
                 <!-- hidden-xs hides the username on small devices so only the image appears. -->
                 <span class="hidden-xs"><?= $this->session->userdata('nipp') ?></span>
               </a>

@@ -18,7 +18,7 @@
         <hr>
         <div class="box-header">
           <a class="btn btn-success" href="<?= base_url('index.php/Accomodation/form') ?>">Ajukan Akomodasi</a>
-          <a class="btn btn-warning" href="<?= base_url('index.php/Accomodation/report') ?>">Laporan</a>
+          <?php if ($this->session->userdata('status') == 1) { ?><a class="btn btn-warning" href="<?= base_url('index.php/Accomodation/report') ?>">Laporan</a><?php } ?>
         </div>
         <!-- /.box-header -->
         <div class="box-body">

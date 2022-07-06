@@ -18,7 +18,7 @@
         <hr>
         <div class="box-header">
           <a class="btn btn-success" href="<?= base_url('index.php/Pelayanan_umum/form') ?>"><i class="fa fa-plus" aria-hidden="true"> Ajukan Permohonan</i></a>
-          <a class="btn btn-warning" href="<?= base_url('index.php/Pelayanan_umum/report') ?>"><i class="fa fa-file" aria-hidden="true"> Laporan</i></a>
+          <?php if ($this->session->userdata('status') == 1) { ?> <a class="btn btn-warning" href="<?= base_url('index.php/Pelayanan_umum/report') ?>"><i class="fa fa-file" aria-hidden="true"> Laporan</i></a><?php } ?>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
@@ -124,7 +124,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+
       </div>
     </div>
     <!-- /.modal-content -->
