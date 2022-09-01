@@ -117,13 +117,9 @@ $html='<table border="1">
                     <td >:</td>
                     <td ></td>
                   </tr>
+
                   <tr>
-                    <td >Pada hari/Tanggal</td>
-                    <td >:</td>
-                    <td >'.tgl_indo($data->DATE_PK).'</td>
-                  </tr>
-                  <tr>
-                    <td >Jam Penggunaan</td>
+                    <td >Tanggal Waktu Peminjaman</td>
                     <td >:</td>
                     <td >'.$data->TIME_PK_AWAL.' s/d '.$data->TIME_PK_AKHIR.'</td>
                   </tr>
@@ -152,6 +148,11 @@ $html='<table border="1">
                     <td >:</td>
                     <td >'.$data->SPEEDO_AKHIR.'</td>
                   </tr>';
+                //   <tr>
+                //   <td >Pada hari/Tanggal</td>
+                //   <td >:</td>
+                //   <td >'.tgl_indo($data->DATE_PK).'</td>
+                // </tr>
 // ---------------------------------------------------------
 $pdf->writeHTML($html, true, false, true, false, '');
 

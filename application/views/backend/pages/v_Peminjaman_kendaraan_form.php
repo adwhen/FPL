@@ -19,7 +19,7 @@
           </div>
         </div>
         <!-- /.box-header -->
-        <form method="POST" action="<?= base_url('index.php/Loan/save') ?>" enctype="multipart/form-data">
+        <form method="POST" action="<?= base_url('index.php/Loan/save') ?>" enctype="multipart/form-data" id="form_pk">
           <div class="box-body">
             <div class="row">
               <div class="col-md-8">
@@ -61,18 +61,11 @@
                     <?php } ?>
                 </select>
               </div> -->
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label>PADA HARI/TANGGAL</label>
                   <input type="DATE" name="TANGGAL" id="TANGGAL" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label>JAM</label>
-                  <div class="row">
-                    <div class="col-md-5"><input type="time" name="WAKTU" id="WAKTU" class="form-control"></div>
-                    <div class="col-md-2">Sampai dengan</div>
-                    <div class="col-md-5"><input type="time" name="WAKTU2" id="WAKTU2" class="form-control"></div>
-                  </div>
-                </div>
+                </div> -->
+               
                 <div class="form-group">
                   <label>TEMPAT TUJUAN</label>
                   <textarea name="TUJUAN" id="TUJUAN" class="form-control"></textarea>
@@ -85,6 +78,7 @@
                   <h3>III. PINJAM KENDARAAN OPERASIONAL</h3>
                 </label>
                 <div class="form-group">
+                
                   <label>JENIS KENDARAAN</label>
                   <!-- <input type="text" name="JENIS_KENDARAAN" id="JENIS_KENDARAAN" class="form-control"> -->
                   <select class="form-control" name="PINJAM_KENDARAAN" id="PINJAM_KENDARAAN">
@@ -93,6 +87,14 @@
                       <option><?= $jk->NAMA_JK ?></option>
                     <?php } ?>
                   </select>
+                </div>
+                <div class="form-group">
+                  <label>Tanggal Jam</label>
+                  <div class="row">
+                    <div class="col-md-5"><input type="datetime-local" name="WAKTU" id="WAKTU" class="form-control"></div>
+                    <div class="col-md-2">Sampai dengan</div>
+                    <div class="col-md-5"><input type="datetime-local" name="WAKTU2" id="WAKTU2" class="form-control"></div>
+                  </div>
                 </div>
                 <div class="form-group">
                   <label>NAMA PENGEMUDI</label>
@@ -132,7 +134,7 @@
                   <textarea name="KOMENTAR" id="KOMENTAR" class="form-control"></textarea>
                 </div>
                 <div class="form-group">
-                  <button class="btn btn-primary" type="submit">SUBMIT</button>
+                  <button class="btn btn-primary" type="button" onclick="check()">SUBMIT</button>
                   <!-- <button type="button" class="btn bg-aqua" onclick="preview()">PREVIEW PDF</button> -->
                 </div>
 
@@ -169,6 +171,20 @@
     var SPEEDO_AWAL = $('#SPEEDO_AWAL').val()
     var SPEEDO_AKHIR = $('#SPEEDO_AKHIR').val()
     alert(SPEEDO_AWAL)
-
+  }
+  function check(){
+    $.post("<?= base_url('index.php/Loan/validasi_tanggal') ?>",
+  {
+      WAKTU : $('#WAKTU').val(),
+      WAKTU2: $('#WAKTU2').val(),
+      MOBIL : $('#PINJAM_KENDARAAN').val()
+  },
+  function(data, status){
+    if(data.trim()=="SUCCESS"){
+        $('#form_pk').submit();
+    }else{
+      alert('KENDARAAN DI TANGGAL DAN JAM TERSEBUT SUDAH DI PESAN');
+    }
+  });
   }
 </script>

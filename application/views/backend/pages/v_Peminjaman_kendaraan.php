@@ -70,7 +70,7 @@ if($this->session->userdata('status')=='1'){
                       <a target="_BLANK" href="<?= base_url('index.php/Loan/REC/' . $dt->IDX_PK) ?>" class="btn btn-primary"><i class="fa fa-file-pdf-o"> PDF</i></a>
                     <?php } else { ?>
                       <?php if ($dt->PROCESS == "KIRIM") { ?>
-                        <a href="#" onclick="pop_up('<?= $dt->IDX_PK ?>')" class="btn btn-primary" data-toggle="modal" data-target="#modal-default"><i class="fa fa-check"></i></a>
+                        <a href="#" onclick="pop_up('<?= $dt->IDX_PK ?>','<?= $dt->TIME_PK_AWAL ?>','<?= $dt->TIME_PK_AKHIR?>','<?= $dt->PINJAM_KENDARAAN ?>')" class="btn btn-primary" data-toggle="modal" data-target="#modal-default"><i class="fa fa-check"></i></a>
                       <?php } else { ?>
                         <a target="_BLANK" href="<?= base_url('index.php/Loan/REC/' . $dt->IDX_PK) ?>" class="btn btn-success"><i class="fa fa-file-pdf-o"> PDF</i></a>
                       <?php } ?>
@@ -119,6 +119,9 @@ if($this->session->userdata('status')=='1'){
           <div class="form-group">
             <label>STATUS KIRIM</label>
             <input type="hidden" name="IDX" id="IDX">
+            <input type="hidden" name="WAKTU" id="WAKTU">
+            <input type="hidden" name="WAKTU2" id="WAKTU2">
+            <input type="hidden" name="MOBIL" id="MOBIL">
             <select class="form-control" name="ACTION" id="ACTION">
               <option value="HOLD">Kembalikan</option>
               <option value="PASS">Setujui</option>
@@ -129,7 +132,7 @@ if($this->session->userdata('status')=='1'){
             <textarea name="KOMENTAR" id="KOMENTAR" class="form-control"></textarea>
           </div>
           <div class="form-group">
-            <button class="btn btn-primary" type="button" onclick="save_pel(IDX.value)">SUBMIT</button>
+            <button class="btn btn-primary" type="button" onclick="check(IDX.value)">SUBMIT</button>
           </div>
         </div>
       </div>
@@ -144,11 +147,33 @@ if($this->session->userdata('status')=='1'){
 </div>
 
 <script type="text/javascript">
-  function pop_up(IDX) {
+
+function pop_up(IDX,WAKTU1,WAKTU2,MOBIL) {
     var url = '<?= base_url('index.php/Loan/REC_Approve/') ?>'
     $("#frame_popup").html('<iframe style="height:700px;width: 100%;" src="' + url + '/' + IDX + '"></iframe>')
     $("#IDX").val(IDX)
+    $("#WAKTU").val(WAKTU1)
+    $("#WAKTU2").val(WAKTU2)
+    $("#MOBIL").val(MOBIL)
+    // alert(IDX+WAKTU1+WAKTU2+MOBIL)
   }
+  function check(idx){
+    $.post("<?= base_url('index.php/Loan/validasi_tanggal') ?>",
+    {
+        WAKTU : $('#WAKTU').val(),
+        WAKTU2: $('#WAKTU2').val(),
+        MOBIL : $('#MOBIL').val(),
+        ID : idx
+    },
+    function(data, status){
+      if(data.trim()!="SUCCESS"){
+        alert('KENDARAAN DI TANGGAL DAN JAM TERSEBUT SUDAH DI PESAN SILAHKAN DICHECK KEMBALI');  
+      }else{
+        save_pel(idx)
+      }
+    });
+  }
+  
 
   function save_pel(idx) {
     var status = $("#ACTION").val()

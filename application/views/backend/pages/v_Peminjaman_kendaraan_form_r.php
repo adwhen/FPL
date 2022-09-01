@@ -68,14 +68,6 @@ if (!empty($this->uri->segment(4))) {
                   <input readonly type="DATE" name="TANGGAL" id="TANGGAL" class="form-control" value="<?= $data->DATE_PK ?>">
                 </div>
                 <div class="form-group">
-                  <label>JAM</label>
-                  <div class="row">
-                    <div class="col-md-5"><input readonly type="time" name="WAKTU" id="WAKTU" class="form-control" value="<?= $data->TIME_PK_AWAL ?>"></div>
-                    <div class="col-md-2">Sampai dengan</div>
-                    <div class="col-md-5"><input readonly type="time" name="WAKTU2" id="WAKTU2" class="form-control" value="<?= $data->TIME_PK_AKHIR ?>"></div>
-                  </div>
-                </div>
-                <div class="form-group">
                   <label>TEMPAT TUJUAN</label>
                   <textarea readonly name="TUJUAN" id="TUJUAN" class="form-control"><?= $data->TUJUAN_PK ?></textarea>
                 </div>
@@ -96,6 +88,14 @@ if (!empty($this->uri->segment(4))) {
                               } ?>><?= $jk->NAMA_JK ?></option>
                     <?php } ?>
                   </select>
+                </div>
+                <div class="form-group">
+                  <label>Tanggal Jam</label>
+                  <div class="row">
+                    <div class="col-md-5"><input type="datetime-local" name="WAKTU" id="WAKTU" class="form-control" value="<?= $data->TIME_PK_AWAL ?>"></div>
+                    <div class="col-md-2">Sampai dengan</div>
+                    <div class="col-md-5"><input type="datetime-local" name="WAKTU2" id="WAKTU2" class="form-control" value="<?= $data->TIME_PK_AKHIR ?>"></div>
+                  </div>
                 </div>
                 <div class="form-group">
                   <label>NAMA PENGEMUDI</label>

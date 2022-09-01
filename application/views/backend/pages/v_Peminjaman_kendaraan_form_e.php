@@ -25,7 +25,7 @@ if (!empty($this->uri->segment(4))) {
           </div>
         </div>
         <!-- /.box-header -->
-        <form method="POST" action="<?= base_url('index.php/Loan/save_edit/' . $this->uri->segment(3)) ?>" enctype="multipart/form-data">
+        <form id="form_pk" method="POST" action="<?= base_url('index.php/Loan/save_edit/' . $this->uri->segment(3)) ?>" enctype="multipart/form-data">
           <div class="box-body">
             <div class="row">
               <div class="col-md-8">
@@ -67,14 +67,7 @@ if (!empty($this->uri->segment(4))) {
                   <label>PADA HARI/TANGGAL</label>
                   <input type="DATE" name="TANGGAL" id="TANGGAL" class="form-control" value="<?= $data->DATE_PK ?>">
                 </div>
-                <div class="form-group">
-                  <label>JAM</label>
-                  <div class="row">
-                    <div class="col-md-5"><input type="time" name="WAKTU" id="WAKTU" class="form-control" value="<?= $data->TIME_PK_AWAL ?>"></div>
-                    <div class="col-md-2">Sampai dengan</div>
-                    <div class="col-md-5"><input type="time" name="WAKTU2" id="WAKTU2" class="form-control" value="<?= $data->TIME_PK_AKHIR ?>"></div>
-                  </div>
-                </div>
+                
                 <div class="form-group">
                   <label>TUJUAN/KEPERLUAN</label>
                   <textarea name="TUJUAN" id="TUJUAN" class="form-control"><?= $data->TUJUAN_PK ?></textarea>
@@ -96,6 +89,14 @@ if (!empty($this->uri->segment(4))) {
                               } ?>><?= $jk->NAMA_JK ?></option>
                     <?php } ?>
                   </select>
+                </div>
+                <div class="form-group">
+                  <label>Tanggal Jam</label>
+                  <div class="row">
+                    <div class="col-md-5"><input type="datetime-local" name="WAKTU" id="WAKTU" class="form-control" value="<?= $data->TIME_PK_AWAL ?>"></div>
+                    <div class="col-md-2">Sampai dengan</div>
+                    <div class="col-md-5"><input type="datetime-local" name="WAKTU2" id="WAKTU2" class="form-control" value="<?= $data->TIME_PK_AKHIR ?>"></div>
+                  </div>
                 </div>
                 <div class="form-group">
                   <label>NAMA PENGEMUDI</label>
@@ -139,7 +140,7 @@ if (!empty($this->uri->segment(4))) {
                   <textarea name="KOMENTAR" id="KOMENTAR" class="form-control"></textarea>
                 </div>
                 <div class="form-group">
-                  <button class="btn btn-primary" type="submit">SUBMIT</button>
+                  <button class="btn btn-primary" type="button" onclick="check()">SUBMIT</button>
                   <!-- <button class="btn bg-aqua">PREVIEW PDF</button> -->
                 </div>
                 <label>
@@ -183,7 +184,25 @@ if (!empty($this->uri->segment(4))) {
   <!-- /.container -->
 </div>
 <script>
+  function check(){
+    $.post("<?= base_url('index.php/Loan/validasi_tanggal') ?>",
+  {
+      WAKTU : $('#WAKTU').val(),
+      WAKTU2: $('#WAKTU2').val(),
+      MOBIL : $('#PINJAM_KENDARAAN').val(),
+      ID : "<?=$this->uri->segment(3)?>"
+  },
+  function(data, status){
+    if(data.trim()=="SUCCESS"){
+        $('#form_pk').submit();
+    }else{
+      alert('KENDARAAN DI TANGGAL DAN JAM TERSEBUT SUDAH DI PESAN');
+    }
+  });
+  }
   $(document).ready(function() {
     $("#PINJAM_KENDARAAN").val('<?= $data->PINJAM_KENDARAAN ?>')
   });
+
+  
 </script>

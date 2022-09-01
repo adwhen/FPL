@@ -115,4 +115,28 @@ class Loan extends CI_Controller
         $query = $this->db->query('SELECT NAMA_UK, count(UNIT_KERJA_PK) as JUMLAH FROM `tb_unit_kerja` left join tb_peminjaman_kendaraan on tb_peminjaman_kendaraan.UNIT_KERJA_PK=tb_unit_kerja.NAMA_UK group by NAMA_UK');
         return $query;
     }
+    public function validasi_tanggal(){
+        $waktu  = $this->input->post('WAKTU');
+        $waktu2 = $this->input->post('WAKTU2');
+        $mobil = $this->input->post('MOBIL');
+        $id = $this->input->post('ID');
+        // $tengah  = '2022-09-01T14:01';
+        // $tengah2 = '2022-09-06T14:01';
+
+        // $tgl1 = strtotime($waktu); 
+        // $tgl2 = strtotime($waktu2);
+        
+        // $hasil = ($tgl1+$tgl2)/2;
+
+        // $hasil = date('Y-m-d',$hasil);
+        
+         $query = 'SELECT * FROM tb_peminjaman_kendaraan WHERE ((TIME_PK_AWAL <="'.$waktu.'" AND TIME_PK_AKHIR >="'.$waktu.'") OR (TIME_PK_AWAL <="'.$waktu2.'" AND TIME_PK_AKHIR >="'.$waktu2.'")) AND PINJAM_KENDARAAN="'.$mobil.'"  AND PROCESS ="APPROVE" AND IDX_PK !="'.$id.'" ';
+        
+        $data = $this->db->query($query)->result_array();
+        if(count($data)>0){
+            echo "FALSE";
+        }else{
+            ECHO "SUCCESS";
+        }
+    }
 }

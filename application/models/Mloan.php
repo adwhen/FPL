@@ -59,7 +59,7 @@ class Mloan extends CI_Model
         {
                 $status = $this->session->userdata('status');
                 if ($status == 0) {
-                        $this->db->where("IDX_U='" . $this->session->userdata('nipp') . "'");
+                        $this->db->where("IDX_U='". $this->session->userdata('nipp') ."'");
                 } else {
                         $this->db->where("PROCESS='KIRIM' OR PROCESS='APPROVE'");
                 }
