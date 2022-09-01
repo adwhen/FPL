@@ -6,6 +6,7 @@ class Mreception extends CI_Model
         {
                 $data['NAMA_J'] = $this->input->post('USER');
                 $data['IDX_U'] = $this->session->userdata('nipp');
+                $data['DATE_IN'] = date("Y-m-d H:i:s");
                 $data['JABATAN_J'] = $this->input->post('JABATAN');
                 $data['NIPP_J'] = $this->input->post('NIPP');
                 $data['TELEPON_J'] = $this->input->post('TELEPON');

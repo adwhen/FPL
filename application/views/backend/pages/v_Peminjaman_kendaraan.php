@@ -1,3 +1,9 @@
+<?php 
+$strTH = "";
+if($this->session->userdata('status')=='1'){
+  $strTH = "<th>Tanggal Input</th>";
+} 
+?>
 <style type="text/css">
   td {
     height: 120px;
@@ -27,6 +33,7 @@
             <thead>
               <tr>
                 <th>No</th>
+                <?=$strTH?>
                 <th>Kendaraan</th>
                 <th>Tujuan</th>
                 <th>Tanggal - Waktu</th>
@@ -38,6 +45,7 @@
               foreach ($data->result() as $dt) { ?>
                 <tr>
                   <td><?= $no++; ?></td>
+                  <?php if($this->session->userdata('status')=='1'){echo "<td>".$dt->DATE_IN."</td>";} ?>
                   <td>
                     <?php if ($dt->PROCESS == "KIRIM") {
                       echo " <button class='btn-default'>WAITING ACCEPTED</button> - ";

@@ -23,7 +23,7 @@
           <div class="box-body">
             <div class="row">
               <div class="col-md-8">
-                <label>Note : untuk pemohon jamuan tamu dinas agar melampirkan bukti persetujuan dari General Manager berupa Screenshoot (jpg/jpeg/png) di lampirkan</label>
+                <label>Note : untuk pemohon Akomodasi agar melampirkan bukti persetujuan dari <b>General Manager</b> dan atau <b> Deputy General Manager </b> berupa Screenshoot (jpg/jpeg/png) di lampirkan</label>
                 <label>
                   <h3>I. IDENTITAS</h3>
                 </label>

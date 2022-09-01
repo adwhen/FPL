@@ -12,6 +12,7 @@ class Dashboard extends CI_Controller {
 		$data=array(
 			'isi'=>'backend/pages/v_Dashboard',
 			'kendaraan' => $this->db->get('tb_jenis_kendaraan')->result_array(),
+			'peminjam' => $this->db->order_by('TIME_PK_AWAL','ASC')->get_where('tb_peminjaman_kendaraan',['PROCESS'=>'APPROVE'])->result_array()
 		);
 		$this->load->view('backend/layout/template',$data);
 	}

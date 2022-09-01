@@ -30,7 +30,6 @@
             <div class="small-box bg-aqua">
               <div class="inner">
                 <h4><B>AVANZA</B></h4>
-
                 <p><?php if(!empty($kendaraan[1]['PEMINJAM'])){echo 'Not Ready';}else{echo "Ready";}?></p>
               </div>
               <div class="icon" style="padding-top:10px">
@@ -40,6 +39,28 @@
             </div>
           </div>
         </section>
+      </div>
+      <div class="row box">
+        <div class="box-body">
+          <table class="table table-bordered table-striped">
+          <thead>
+            <th>No</th>
+            <th>Peminjam</th>
+            <th>Kendaraan</th>
+            <th>Tanggal - Waktu</th>
+          </thead>
+          <tbody>
+            <?php $x=1; foreach($peminjam as $dt){ ?>
+            <tr>
+              <td><?=$x++?></td>
+              <td><?=$dt['NAMA_PK']?></td>
+              <td><?=$dt['PINJAM_KENDARAAN']?></td>
+              <td><?=$dt['TIME_PK_AWAL']?>-<?=$dt['TIME_PK_AKHIR']?></td>
+            </tr>
+            <?php } ?>
+          </tbody>
+        </table></div>
+        
       </div>
 
       <!-- /.content -->

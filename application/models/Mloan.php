@@ -6,6 +6,7 @@ class Mloan extends CI_Model
         {
                 $data['NAMA_PK'] = $this->input->post('USER');
                 $data['IDX_U'] = $this->session->userdata('nipp');
+                $data['DATE_IN'] = date("Y-m-d H:i:s");
                 $data['JABATAN_PK'] = $this->input->post('JABATAN');
                 $data['NIPP_PK'] = $this->input->post('NIPP');
                 $data['TELEPON_PK'] = $this->input->post('TELEPON');

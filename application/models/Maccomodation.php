@@ -6,6 +6,7 @@ class Maccomodation extends CI_Model
         {
                 $data['NAMA_A'] = $this->input->post('USER');
                 $data['IDX_U'] = $this->session->userdata('nipp');
+                $data['DATE_IN'] = date("Y-m-d H:i:s");
                 $data['JABATAN_A'] = $this->input->post('JABATAN');
                 $data['NIPP_A'] = $this->input->post('NIPP');
                 $data['TELEPON_A'] = $this->input->post('TELEPON');

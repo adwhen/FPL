@@ -6,6 +6,7 @@ class Mpelayananumum extends CI_Model
         {
                 $data['NOMOR_UMUM'] = $this->input->post('NOMOR');
                 $data['IDX_U'] = $this->session->userdata('nipp');
+                $data['DATE_IN'] = date("Y-m-d H:i:s");
                 $data['NAMA_PEMOHON'] = $this->input->post('USER');
                 $data['JABATAN'] = $this->input->post('JABATAN');
                 $data['NIPP'] = $this->input->post('NIPP');
