@@ -68,9 +68,9 @@
                 <div class="form-group">
                   <label>JAM</label>
                   <div class="row">
-                    <div class="col-md-5"><input type="time" name="WAKTU" id="WAKTU" class="form-control"></div>
+                    <div class="col-md-5"><input type="datetime-local" name="WAKTU" id="WAKTU" class="form-control"></div>
                     <div class="col-md-2">Sampai dengan</div>
-                    <div class="col-md-5"><input type="time" name="WAKTU2" id="WAKTU2" class="form-control"></div>
+                    <div class="col-md-5"><input type="datetime-local" name="WAKTU2" id="WAKTU2" class="form-control"></div>
                   </div>
                 </div>
                 <div class="form-group">

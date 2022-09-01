@@ -4,7 +4,7 @@
       <section class="content-header">
         <h1>
           Dashboard
-          <small>Version 0.0.1</small>
+          <small>Version 1.0.1</small>
         </h1>
       </section>
 
