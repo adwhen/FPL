@@ -60,7 +60,7 @@ if($this->session->userdata('status')=='1'){
                     } ?>
                     <?= $dt->PINJAM_KENDARAAN ?></td>
                   <td><?= $dt->TUJUAN_PK ?></td>
-                  <td><?= $dt->DATE_PK . "-" . $dt->TIME_PK_AWAL ?> S/D <?= $dt->TIME_PK_AKHIR ?></td>
+                  <td><?= $dt->TIME_PK_AWAL ?> S/D <?= $dt->TIME_PK_AKHIR ?></td>
                   <td>
                     <?php if ($this->session->userdata('status') == 0) { ?>
                       <?php if ($dt->PROCESS == "APPROVE") { ?>

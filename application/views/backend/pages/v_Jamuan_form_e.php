@@ -30,7 +30,12 @@
                 <!-- /.form-group -->
                 <div class="form-group">
                   <label>Nama Pemohon/User</label>
-                  <input type="text" name="USER" id="USER" class="form-control" value="<?= $data->NAMA_J ?>">
+                  <select name="USER" id="USER"  class="form-control" onchange="userChange()">
+                    <option value="">CHOOSE</option>
+                    <?php foreach($karyawan as $kar){ ?>
+                    <option <?php if($data->NAMA_PK==$kar->NAMA_USER){echo "selected";} ?> value="<?=$kar->NAMA_USER?>"><?=$kar->NAMA_USER?></option>
+                    <?php } ?>
+                  </select>
                 </div>
                 <div class="form-group">
                   <label>JABATAN</label>
@@ -211,5 +216,17 @@
 <script>
   function typingJumlah() {
     console.log('onpress')
+  }
+  function userChange(){
+    const nama = $('#USER').val()
+    $.post("<?= base_url('index.php/Karyawan/search_karyawan') ?>",{NAMA:nama},
+    function(res, status){
+      const data=JSON.parse(res)
+      $("#JABATAN").val(data.JABATAN_USER)
+      $("#NIPP").val(data.NIPP_USER)
+      $("#TELEPON").val(data.TELPON_USER)
+      $('#UNITKERJA').val(data.UNIT_KERJA)
+    }
+    );
   }
 </script>

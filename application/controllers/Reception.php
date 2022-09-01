@@ -22,6 +22,7 @@ class Reception extends CI_Controller
 	}
 	public function form($id = null)
 	{
+		$data['karyawan'] = $this->db->get('mst_user')->result();
 		if ($id == null) {
 			$view = 'backend/pages/v_Jamuan_form';
 		} else {
@@ -112,4 +113,9 @@ class Reception extends CI_Controller
 		$search['DATA'] = $this->db->join('tb_jamuan_jenis', 'tb_jamuan_jenis.IDX_JJ=tb_jamuan.IDX_J')->get_where('tb_jamuan', $where)->result();
 		$this->load->view('report/jamuan_dinas', $search);
 	}
+	public function search_karyawan(){
+        $nama = $this->input->post('NAMA');
+        $query = $this->db->select('NAMA_USER, JABATAN_USER, NIPP_USER, TELPON_USER, UNIT_KERJA')->get_where('mst_user',['NAMA_USER'=>$nama])->row();
+        echo json_encode($query);die;
+    }
 }

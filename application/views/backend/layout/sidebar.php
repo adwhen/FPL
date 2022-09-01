@@ -66,7 +66,7 @@
               <ul class="dropdown-menu">
                 <!-- The user image in the menu -->
                 <li class="user-header">
-                  <img src="<?= base_url('assets/adminlte') ?>/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                  <img src="<?= base_url('assets/') ?>logo.jpg" class="img-circle" alt="User Image">
 
                   <p>
                     <?= $this->session->userdata('username') ?> - <?= $this->session->userdata('jabatan') ?>
@@ -84,9 +84,9 @@
                 </li>
                 <!-- Menu Footer-->
                 <li class="user-footer">
-                  <div class="pull-left">
+                  <!-- <div class="pull-left">
                     <a href="#" class="btn btn-default btn-flat">Profile</a>
-                  </div>
+                  </div> -->
                   <div class="pull-right">
                     <a href="<?= base_url('index.php/welcome/logout') ?>" class="btn btn-default btn-flat">Sign out</a>
                   </div>

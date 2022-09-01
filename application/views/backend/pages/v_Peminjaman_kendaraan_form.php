@@ -31,23 +31,29 @@
                 <!-- /.form-group -->
                 <div class="form-group">
                   <label>Nama Pemohon/User</label>
-                  <input type="text" name="USER" id="USER" class="form-control" value="<?= $this->session->userdata('username') ?>">
+                  <!-- <input type="text" name="USER" id="USER" class="form-control" value="<?= $this->session->userdata('username') ?>"> -->
+                  <select name="USER" id="USER"  class="form-control" onchange="userChange()">
+                    <option value="">CHOOSE</option>
+                    <?php foreach($karyawan as $kar){ ?>
+                    <option value="<?=$kar->NAMA_USER?>"><?=$kar->NAMA_USER?></option>
+                    <?php } ?>
+                  </select>
                 </div>
                 <div class="form-group">
                   <label>JABATAN</label>
-                  <input type="text" name="JABATAN" id="JABATAN" class="form-control" value="<?= $this->session->userdata('jabatan') ?>">
+                  <input type="text" name="JABATAN" id="JABATAN" class="form-control" value="">
                 </div>
                 <div class="form-group">
                   <label>NIPP</label>
-                  <input type="text" name="NIPP" id="NIPP" class="form-control" value="<?= $this->session->userdata('nipp') ?>">
+                  <input type="text" name="NIPP" id="NIPP" class="form-control" value="">
                 </div>
                 <div class="form-group">
                   <label>TELEPON</label>
-                  <input type="text" name="TELEPON" id="TELEPON" class="form-control" value="<?= $this->session->userdata('telpon_user') ?>">
+                  <input type="text" name="TELEPON" id="TELEPON" class="form-control" value="">
                 </div>
                 <div class="form-group">
                   <label>UNIT KERJA</label>
-                  <input type="text" name="UNITKERJA" id="UNITKERJA" class="form-control" value="<?= $this->session->userdata('unit_kerja') ?>">
+                  <input type="text" name="UNITKERJA" id="UNITKERJA" class="form-control" value="">
                 </div>
 
                 <label>
@@ -186,5 +192,17 @@
       alert('KENDARAAN DI TANGGAL DAN JAM TERSEBUT SUDAH DI PESAN');
     }
   });
+  }
+  function userChange(){
+    const nama = $('#USER').val()
+    $.post("<?= base_url('index.php/Karyawan/search_karyawan') ?>",{NAMA:nama},
+    function(res, status){
+      const data=JSON.parse(res)
+      $("#JABATAN").val(data.JABATAN_USER)
+      $("#NIPP").val(data.NIPP_USER)
+      $("#TELEPON").val(data.TELPON_USER)
+      $('#UNITKERJA').val(data.UNIT_KERJA)
+    }
+    );
   }
 </script>

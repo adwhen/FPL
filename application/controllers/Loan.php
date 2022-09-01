@@ -22,6 +22,7 @@ class Loan extends CI_Controller
     }
     public function form($id = null)
     {
+        $data['karyawan'] = $this->db->get('mst_user')->result();
         if ($id == null) {
             $view = 'backend/pages/v_Peminjaman_kendaraan_form';
         } else {
@@ -138,5 +139,10 @@ class Loan extends CI_Controller
         }else{
             ECHO "SUCCESS";
         }
+    }
+    public function search_karyawan(){
+        $nama = $this->input->post('NAMA');
+        $query = $this->db->select('NAMA_USER, JABATAN_USER, NIPP_USER, TELPON_USER, UNIT_KERJA')->get_where('mst_user',['NAMA_USER'=>$nama])->row();
+        echo json_encode($query);die;
     }
 }
