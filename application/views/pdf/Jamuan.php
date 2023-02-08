@@ -139,7 +139,7 @@ $pdf->writeHTMLCell(28, 5, 149, 83, 'BANTUAN KONSUMSI', $border=0, $ln=0, $fill=
 
 $html=str_replace('scope="col"','align="center"',$data->ISI_J);
 $html = str_replace('<p>&nbsp;</p>','',$html);
-$html =$no_spaccing.$html;
+//$html =$no_spaccing.$html;
 $pdf->writeHTMLCell(180, 100, 10, 100, $html, $border=0, $ln=0, $fill=0, $reseth=true, $align='center', $autopadding=true);
 
 $pdf->SetFont('times', '', 10);
